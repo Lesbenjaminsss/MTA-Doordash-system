@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoorDash Phone</title>
+    <link rel="stylesheet" href="phone.css">
+</head>
+<body>
+    <div class="phone-container">
+        <div class="phone-header">
+            <div class="header-left">
+                <span class="time" id="currentTime">12:00</span>
+            </div>
+            <div class="header-center">
+                <span class="app-title">DoorDash</span>
+            </div>
+            <div class="header-right">
+                <span class="battery">100%</span>
+            </div>
+        </div>
+
+        <div class="phone-body">
+            <div class="screen waiting-screen" id="waitingScreen">
+                <div class="logo-container">
+                    <div class="logo">
+                        <span class="logo-icon">🛵</span>
+                        <span class="logo-text">DoorDash</span>
+                    </div>
+                </div>
+                <div class="status-text">
+                    <p>Musteri teklifleri bekleniyor...</p>
+                </div>
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+                <button class="btn btn-refresh" onclick="requestNewOffer()">
+                    <span>Yeni Teklif Ist</span>
+                </button>
+            </div>
+
+            <div class="screen offer-screen hidden" id="offerScreen">
+                <div class="offer-header">
+                    <h2>Yeni Siparis!</h2>
+                    <div class="timer" id="offerTimer">30s</div>
+                </div>
+
+                <div class="offer-details">
+                    <div class="detail-card">
+                        <div class="detail-icon">🍔</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Siparis</span>
+                            <span class="detail-value" id="offerFood">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-icon">🏪</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Restoran</span>
+                            <span class="detail-value" id="offerRestaurant">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-icon">👤</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Musteri</span>
+                            <span class="detail-value" id="offerCustomer">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-icon">📏</div>
+                        <div class="detail-info">
+                            <span class="detail-label">Mesafe</span>
+                            <span class="detail-value" id="offerDistance">-</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-card">
+                        <div class="payment-row">
+                            <span>Teslimat Ucreti</span>
+                            <span id="offerPayment">$0</span>
+                        </div>
+                        <div class="payment-row">
+                            <span>Bahsis</span>
+                            <span id="offerTip">$0</span>
+                        </div>
+                        <div class="payment-row total">
+                            <span>Toplam</span>
+                            <span id="offerTotal">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-buttons">
+                    <button class="btn btn-decline" onclick="declineOffer()">Reddet</button>
+                    <button class="btn btn-accept" onclick="acceptOffer()">Kabul Et</button>
+                </div>
+            </div>
+
+            <div class="screen active-screen hidden" id="activeScreen">
+                <div class="active-header">
+                    <h2>Aktif Teslimat</h2>
+                </div>
+
+                <div class="active-details">
+                    <div class="stage-indicator" id="stageIndicator">
+                        <div class="stage active" id="stagePickup">
+                            <span class="stage-icon">🏪</span>
+                            <span>Restoran</span>
+                        </div>
+                        <div class="stage-line"></div>
+                        <div class="stage" id="stageDeliver">
+                            <span class="stage-icon">👤</span>
+                            <span>Musteri</span>
+                        </div>
+                    </div>
+
+                    <div class="active-info">
+                        <p id="activeStatus">Restorana gidin...</p>
+                        <p class="distance" id="activeDistance">-</p>
+                    </div>
+
+                    <div class="payment-summary">
+                        <span>Kazanc: </span>
+                        <span id="activePayment">$0</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-cancel" onclick="cancelDelivery()">Iptal Et</button>
+            </div>
+        </div>
+
+        <div class="phone-footer">
+            <button class="footer-btn" onclick="closePhone()">
+                <span class="footer-icon">✕</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="phone.js"></script>
+</body>
+</html>

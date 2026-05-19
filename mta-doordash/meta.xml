@@ -1,0 +1,8 @@
+<meta>
+    <info name="DoorDash" author="Lesbenjamins Developer" version="1.0" type="script" />
+    <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" />
+    <file src="html/phone.html" />
+    <file src="html/phone.css" />
+    <file src="html/phone.js" />
+</meta>
